@@ -9,8 +9,8 @@ Given these homes are contained in the system
                
   
  	   Scenario: Search about home by placement
-   When I search about home by "CITY"
-   Then A list of homes that matches the specification should be returned and printed on the console
+When I search about home by "CITY"
+Then A list of homes that matches the specification should be returned and printed on the console
      
    Scenario: Search about home by  material
 		   When I search about home by material is "WOOD"

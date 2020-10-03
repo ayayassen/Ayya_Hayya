@@ -154,11 +154,11 @@ public class SearchSteps {
 						selected_homes.add(h);}
 					int flag=0;
 					for(int k=0;k<h.getAmenities().size();k++) {
-						System.out.println(h.getAmenities().get(k).Am);
+						//System.out.println(h.getAmenities().get(k).Am);
 					
 						
 					for(int j=0;j<amenitiesO.size();j++) {
-						System.out.println(amenitiesO.get(j).Am);
+						//System.out.println(amenitiesO.get(j).Am);
 						if (h.getAmenities().get(k).Am.equals(amenitiesO.get(j).Am)) {flag+=1;}}
 				        if(flag==amenitiesO.size()) {selected_homes.add(h);}}}}
 					
@@ -189,7 +189,7 @@ public class SearchSteps {
 			selected_homes.remove(j);}}}
             selected_homes.clear();
           for(Home b:selected_homes13 ) {
-          System.out.println(b.toString());
+          //System.out.println(b.toString());
 		  selected_homes.add(b);}}
 		  	 
 		  	

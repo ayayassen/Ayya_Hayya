@@ -53,7 +53,7 @@ public String toString(){
 	a.append(", "+amenities.get(n).Am);
 			}
 			
-	return "type:"+type.type+" ,Material:"+material.material+" ,Placement:"+placement.palce+"  ,pet:"+pet.pet+"  Amenities:"+a.toString()+" ,Price:"+price+"  ,Area:"+area+"  NumOfBedrooms:"+num_of_bedrooms+"    NumOFBathrooms:"+num_of_bathrooms+"   Leaselingth:"+lease_length;
+	return "Home [type ="+type.type+" ,Material ="+material.material+" ,Placement ="+placement.palce+"  ,pet ="+pet.pet+"  Amenities ="+a.toString()+" ,Price ="+price+"  ,Area ="+area+"  NumOfBedrooms ="+num_of_bedrooms+"    NumOFBathrooms ="+num_of_bathrooms+"   Leaselingth ="+lease_length+" ]";
 }
 public int getBathroom() {
 	// TODO Auto-generated method stub
