@@ -47,6 +47,16 @@
     <version>5.1.0</version>
     <scope>test</scope>
 </dependency>
-
+<dependency>
+  <groupId>junit</groupId>     <!-- NOT org.junit here -->
+  <artifactId>junit-dep</artifactId>
+  <version>4.8.2</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+<groupId>org.assertj</groupId>
+<artifactId>assertj-core</artifactId>
+<version>3.9.1</version>
+</dependency>
    </dependencies>
 </project>
