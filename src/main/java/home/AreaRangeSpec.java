@@ -11,6 +11,7 @@ public class AreaRangeSpec implements GeneralSpec {
 		return areaH;
 	}
 
+	
 	 public boolean isMatchingSpec(Home h) {
 		return (h.getArea()>getAreaL().getArea())&&(h.getArea()<getAreaH().getArea());
 	}
