@@ -1,11 +1,17 @@
 package home;
 
-
 public class Pet {
-	public String pet;
+	private String petValue;
 public Pet(String s) {
 	if(s.equals("YES")|| s.equals("NO")) {
 		
-	pet=s;
+	setpetValue(s);
 }
+}
+public String getpetValue() {
+	return petValue;
+}
+public void setpetValue(String petValue) {
+	this.petValue = petValue;
 }}
+

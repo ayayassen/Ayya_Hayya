@@ -1,28 +1,41 @@
 package home;
 
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeStore {
-public String st1;
-public String st2;
-public ArrayList<Home> homeList=new ArrayList<Home>();
-public String[] numbers;
-public String[] words;
 
-
-
-
+private List<Home> homeList=new ArrayList<>();
 
 
 public void addHome(String s1,String s2) {
-this.st1=s1;
-this.st2=s2;
-words=st1.split("_");
-numbers=st2.split("_");
+String st1=s1;
+String st2=s2;
+String[] words=st1.split("_");
+String[] numbers=st2.split("_");
 
-Home h=new Home(words[0],words[1],words[2],words[3],words[4],numbers[0],numbers[1],numbers[2],numbers[3],numbers[4]);
-homeList.add(h)	;
+Home h=new Home(words[0],words[1],words[2],words[3],words[4]);
+h.completeConst(numbers[0],numbers[1],numbers[2],numbers[3],numbers[4]);
+
+getHomeList().add(h)	;
+}
+
+
+
+
+
+
+public List<Home> getHomeList() {
+	return  homeList;
+}
+
+
+
+
+
+
+public void setHomeList(List<Home> homeList) {
+	this.homeList = homeList;
 }
 
 

@@ -1,12 +1,19 @@
 package home;
 
 
+
 public class Material {
-public String material;
+private String materialName;
 public Material(String m) {
 	if(m.equals("WOOD")|| m.equals("STONE")||m.equals("BRICK")) {
 		
-	this.material=m;
+	this.setMaterialName(m);
 }
 
+}
+public String getMaterialName() {
+	return materialName;
+}
+public void setMaterialName(String materialName) {
+	this.materialName = materialName;
 }}

@@ -2,11 +2,17 @@ package home;
 
 
 public class HomeType {
-public String type;
+private String type;
 public HomeType(String s) {
 	if(s.equals("APARTMENT")|| s.equals("HOUSE")) {
-		type=s;
+		setType(s);
 	}
 
+}
+public String getType() {
+	return type;
+}
+public void setType(String type) {
+	this.type = type;
 }
 }

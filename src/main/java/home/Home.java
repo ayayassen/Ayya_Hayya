@@ -2,37 +2,46 @@ package home;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Home {
 	private int price;
 	private int area;
-	private int num_of_bedrooms;
-	private int num_of_bathrooms;
-	private int lease_length;
+	private int numofBedrooms;
+	private int numofBathrooms;
+	private int leaseLength;
 	private HomeType type;
 	private Pet pet;
 	private Material material;
 	private Placement placement;
-	private  ArrayList<Amenities> amenities=new ArrayList<Amenities>();
+	private  ArrayList<Amenities> amenities=new ArrayList<>();
 	
-	
-	public Home(String type,String material,String place ,String pet,String  L,String price,String area,String nobed,String nobath,String leaselength ) {
+	public Home() {}
+	public Home(String type,String material,String place ,String pet,String listString) {
 	     this.type=new HomeType(type);
 	     this.material=new Material(material);
 	     this.placement=new Placement(place);
 	     this.pet=new Pet(pet);	
-		 String []LL=L.split(",");
-		 for(int i=0;i<LL.length;i++) {this.amenities.add(new Amenities(LL[i]));}
-	     this.price=Integer.parseInt(price);
-		 this.area=Integer.parseInt(area);
-		 this.num_of_bedrooms=Integer.parseInt(nobed);
-		 this.num_of_bathrooms=Integer.parseInt(nobath);
-		 this.lease_length=Integer.parseInt(leaselength);
+		 String []lLString=listString.split(",");
+		 for(int i=0;i<lLString.length;i++) {this.amenities.add(new Amenities(lLString[i]));}
+	     
+	}
 	
+	
+	public void completeConst(String price,String area,String nobed,String nobath,String leaselength ) {
+		
+		this.price=Integer.parseInt(price);
+		 this.area=Integer.parseInt(area);
+		 this.numofBedrooms=Integer.parseInt(nobed);
+		 this.numofBathrooms=Integer.parseInt(nobath);
+		 this.leaseLength=Integer.parseInt(leaselength);
+	
+		
+		
 	}
 	public int getBedroom() {
-	// TODO Auto-generated method stub
-	return num_of_bedrooms;
+
+	return numofBedrooms;
 }
 	public int getPrice() {
 		return price;
@@ -41,38 +50,38 @@ public class Home {
 		return area;
 	}
 	public String getPlacement() {
-		return placement.palce;
+		return placement.getPalce();
 	}
 	public String getMaterial() {
-		return material.material;
+		return material.getMaterialName();
 	}
 	
 public String toString(){
-	StringBuffer a=new StringBuffer();
+	StringBuilder a=new StringBuilder();
 	for(int n=0;n<amenities.size();n++) {
-	a.append(", "+amenities.get(n).Am);
+	a.append(", "+amenities.get(n).getAmenitiesString());
 			}
 			
-	return "Home [type ="+type.type+" ,Material ="+material.material+" ,Placement ="+placement.palce+"  ,pet ="+pet.pet+"  Amenities ="+a.toString()+" ,Price ="+price+"  ,Area ="+area+"  NumOfBedrooms ="+num_of_bedrooms+"    NumOFBathrooms ="+num_of_bathrooms+"   Leaselingth ="+lease_length+" ]";
+	return "Home [type ="+type.getType()+" ,Material ="+material.getMaterialName()+" ,Placement ="+placement.getPalce()+"  ,pet ="+pet.getpetValue()+"  Amenities ="+a.toString()+" ,Price ="+price+"  ,Area ="+area+"  NumOfBedrooms ="+numofBedrooms+"    NumOFBathrooms ="+numofBathrooms+"   LeaseLingth ="+leaseLength+" ]";
 }
 public int getBathroom() {
-	// TODO Auto-generated method stub
-	return num_of_bathrooms;
+	
+	return numofBathrooms;
 }
 public String getPets() {
-	// TODO Auto-generated method stub
-	return pet.pet;
+	
+	return pet.getpetValue();
 }
 public String getType() {
-	// TODO Auto-generated method stub
-	return type.type;
+	
+	return type.getType();
 }
 public int getLeaseLength() {
-	// TODO Auto-generated method stub
-	return lease_length;
+	
+	return leaseLength;
 }
-public ArrayList<Amenities> getAmenities() {
-	// TODO Auto-generated method stub
+public List<Amenities> getAmenities() {
+
 	return this.amenities;
 }
 
