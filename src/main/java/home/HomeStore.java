@@ -34,10 +34,6 @@ public List<Home> getHomeList() {
 
 
 
-public void setHomeList(List<Home> homeList) {
-	this.homeList = homeList;
-}
-
 
 
 

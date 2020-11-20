@@ -8,8 +8,16 @@ import java.util.List;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import static org.mockito.Mockito.*;
 public class SearchSteps {
+	private SearchHome search;
+	private MockEmailHolder mocWebholder;
+	public SearchSteps(SearchHome search, MockEmailHolder mocWebholder){
+		this.search = search;
+		this.mocWebholder = mocWebholder;
+	}
+
+
 	
 	public SearchHome searchHome=new SearchHome();
 	@Given("these homes are contained in the system")
@@ -24,13 +32,13 @@ public class SearchSteps {
 			
 			searchHome.storeHome();
 			}
-	        System.out.println(" in given statment");     }
+	        System.out.println(" in given statment ");     }
 
 		
 	
 	@When("I search about home with price less than {int}")
 	public void iSearchAboutHomeWithPriceLessThan(Integer int1) {
-		System.out.println("SEARCH BY Price less than"+int1);
+		System.out.println("SEARCH BY Price less than "+int1);
 		Price priceObj=new Price(int1);
 	   searchHome.searchByPriceLess(priceObj);
 	}
@@ -51,7 +59,7 @@ public class SearchSteps {
 	
 	@When("I search about home by {string}")
 	public void iSearchAboutHomeBy(String string) {
-		System.out.println("SEARCH BY palcement"+string);
+		System.out.println("SEARCH BY palcement "+string);
 		Placement placementObj= new Placement(string);
 	searchHome.searchByPlacement(placementObj);	 	
 	}
@@ -66,7 +74,7 @@ public class SearchSteps {
 	
 	@When("I search about home by material is {string}")
 	public void iSearchAboutHomeByMaterialIs(String string) {
-		System.out.println("SEARCH BY Matrial"+string);
+		System.out.println("SEARCH BY Matrial "+string);
 		Material materialObj=new Material(string);
 		searchHome.searchByMaterial(materialObj);}
 	
@@ -81,7 +89,7 @@ public class SearchSteps {
 	
 	@When("I search about home with price between {int} and {int}")
 	public void i_search_about_home_with_price_between_and(Integer int1, Integer int2) {
-		System.out.println("SEARCH BY pricev btween"+int1+"and"+int2);
+		System.out.println("SEARCH BY pricev btween "+int1+" and "+int2);
 		Price priceObjL=new Price(int1);
 		Price priceObjH=new Price(int2);
 		searchHome.searchByPriceBetween(priceObjL, priceObjH);	}
@@ -95,7 +103,7 @@ public class SearchSteps {
 	
 	@When("I search about home with area less than {int}")
 	public void iSearchAboutHomeWithAreaLessThan(Integer int1) {
-		System.out.println("SEARCH BY area"+int1);
+		System.out.println("SEARCH BY area "+int1);
 		Area areaObj=new Area(int1);
 		searchHome.searchByAreaLess(areaObj);
 	}
@@ -108,7 +116,7 @@ public class SearchSteps {
 	
 	@When("I search about home with area more than {int} less than {int}")
 	public void i_search_about_home_with_area_more_than_less_than(Integer int1, Integer int2) {
-		System.out.println("SEARCH BY area between"+int1+"and"+int2);
+		System.out.println("SEARCH BY area between "+int1+"and "+int2);
 		Area areaObjL=new Area(int1);
 		Area areaObjH=new Area(int2);
 	   searchHome.searchByAreaBetween(areaObjL, areaObjH);
@@ -124,7 +132,7 @@ public class SearchSteps {
 	
 	@When("I search about home with {int} bedrooms")
 	public void i_search_about_home_with_bedrooms(Integer int1) {
-		System.out.println("SEARCH BY bedrooms"+int1);
+		System.out.println("SEARCH BY bedrooms "+int1);
 		Bedrooms bedroomsObj=new Bedrooms(int1);
 		 searchHome.searchByBedrooms(bedroomsObj);
 	}
@@ -139,7 +147,7 @@ public class SearchSteps {
 	
 	@When("I search about home with {int} bathrooms")
 	public void i_search_about_home_with_bathrooms(Integer int1) {
-		System.out.println("SEARCH BY bedrooms"+int1);
+		System.out.println("SEARCH BY bedrooms "+int1);
 		Bathrooms bathroomsObj=new Bathrooms(int1);
 		searchHome.searchByBathrooms(bathroomsObj);  
 	}
@@ -154,7 +162,7 @@ public class SearchSteps {
 	
 	@When("I search about home by allowing pets {string}")
 	public void i_search_about_home_by_allowing_pets(String string) {
-		System.out.println("SEARCH BY pets"+string);
+		System.out.println("SEARCH BY pets "+string);
 		Pet petsObj=new Pet(string);
 		searchHome.searchByPet(petsObj);	}
 	@Then("A list of homes that matches the pets specification should be {string}")
@@ -168,7 +176,7 @@ public class SearchSteps {
 	
 	@When("I search about home by type is {string}")
 	public void i_search_about_home_by_type_is(String string) {
-		System.out.println("SEARCH BY type"+string);
+		System.out.println("SEARCH BY type "+string);
 		HomeType typeObj=new HomeType(string);
 		
 		searchHome.searchByType(typeObj);	}
@@ -181,9 +189,9 @@ public class SearchSteps {
 	
 	@When("I search about home with {int} months")
 	public void i_search_about_home_with_months(Integer int1) {
-		System.out.println("SEARCH BY leaselength"+int1);
-		LeaseLength leseLengthObj=new LeaseLength(int1);
-		searchHome.searchByLeaseLength(leseLengthObj);}
+		System.out.println("SEARCH BY leaselength "+int1);
+		//LeaseLength leseLengthObj=new LeaseLength(int1);
+		searchHome.searchByLeaseLength(new LeaseLength(int1));}
 	@Then("A list of homes that matches the leaseLingth specification should be {string}")
 	public void aListOfHomesThatMatchesTheLeaseLingthSpecificationShouldBe(String string11) {
 		searchHome.printHomesByMatchingSpec(string11); 
@@ -193,7 +201,7 @@ public class SearchSteps {
 	
 	@When("I search about home with {string}")
 	public void i_search_about_home_with(String string) {
-		System.out.println("SEARCH BY amenities"+string);
+		System.out.println("SEARCH BY amenities "+string);
 		searchHome.searchByAmenities(string);}
 	
 	@Then("A list of homes that matches the amenities specification should be {string}")
@@ -205,13 +213,28 @@ public class SearchSteps {
 	
 	@When("I search about home that the {string}")
 	public void iSearchAboutHomeThatThe(String fs) {
-		System.out.println("SEARCH BY"+fs);
+		System.out.println("SEARCH BY "+fs);
 		searchHome.srearchByMultiFilters(fs);
 	}
 	@Then("A list of homes that matches the filters specification should be {string}")
 	public void aListOfHomesThatMatchesTheFiltersSpecificationShouldBe(String string13) {
 		searchHome.printHomesByMatchingSpec(string13);  
 	}
+	
+	@Then("email with the result should be sent to user {string}")
+	public void emailWithTheResultShouldBeSentToUser(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+		verify(mocWebholder.getEmailService(),times(1)).sendEmail();
+	}
+
+	
+	
+	
+	/*@Then("email with the result should be sent to user {string}")
+	public void emailWithTheResultShouldBeSentToUserAnd(String string1) {
+
+		verify(mocWebholder.getEmailService(),times(1)).sendEmail(string1 ,searchHome.getCheckoutput().toString());
+		}*/
 
 	
 		

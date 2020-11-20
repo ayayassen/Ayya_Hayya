@@ -5,14 +5,12 @@ import java.util.List;
 public  class MultiFiltersSpec {
 
 	private String[] filters;
-	private List<Home> homeList;
+	List<Home> homeList;
 	private Home h1;
 	private Home h2;
 	
 
-	public List<Home> getHomeList() {
-		return homeList;
-	}
+	
 
 	public MultiFiltersSpec(String[] filters) {
 		this.filters = filters;

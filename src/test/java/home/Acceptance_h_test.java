@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions.*;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features="cases",
-		strict=true,
+		strict=true, tags = "@byType",
 		plugin= {"html:target/cucumber/wikipedia.html"},
 		monochrome=true,
 		snippets=SnippetType.CAMELCASE,

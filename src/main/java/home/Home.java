@@ -16,7 +16,7 @@ public class Home {
 	private Placement placement;
 	private  ArrayList<Amenities> amenities=new ArrayList<>();
 	
-	public Home() {}
+
 	public Home(String type,String material,String place ,String pet,String listString) {
 	     this.type=new HomeType(type);
 	     this.material=new Material(material);

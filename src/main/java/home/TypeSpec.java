@@ -15,12 +15,9 @@ public class TypeSpec implements GeneralSpec{
 
 	public boolean isMatchingSpec(Home h) {
 		return h.getType().equals(getType().getType());
+	
 	}
 
-	public boolean isMatchingSpec() {
-		
-		return false;
-	}
-
+	
 	
 }

@@ -19,6 +19,16 @@ public class SearchHome {
 	private String s2;
 	private StringBuilder checkOutput=new StringBuilder();
 
+	private static WebEmailService webESerivce=new WebEmailService();
+	
+	
+public static void setEmailservice(WebEmailService emailService) {
+		
+	setWebESerivce(emailService);
+		
+		
+	}
+
 	public SearchHome() {
 		 List<Home> selHome= new ArrayList<>();
 	setSelectedHomes(selHome);
@@ -30,61 +40,78 @@ public class SearchHome {
 	
 	public void storeHome() {
 		this.store.addHome(s1, s2);
+		
 	}
 	
 	
 	
 	public void searchByPriceLess(Price price) {
 		GeneralSpec spec=new BelowSpecPrice(price);
-	   bySpec(spec);}
+	   bySpec(spec);
+	   
+	   }
 
 	
 	public void searchByPlacement(Placement placement) {
 		GeneralSpec spec= new PlacementSpec(placement);
-		bySpec(spec);}
+		bySpec(spec);
+		 
+	}
 	
 	
 	
 
 	public void searchByMaterial(Material material) {
 		GeneralSpec spec=new MaterialSpec(material);
-		bySpec(spec);}
+		bySpec(spec);
+		 
+	}
 	
 	
 	
 
 	public void searchByPriceBetween(Price priceL,Price priceH ) {
 		GeneralSpec spec=new PriceRangeSpec(priceL,priceH);
-		bySpec(spec);}
+		bySpec(spec);
+	}
 	
 	
 
 	public void searchByAreaLess(Area area) {
 		GeneralSpec spec=new BelowAreaSpec(area);
-		bySpec(spec);}
+		bySpec(spec);
+		 
+	}
 	
 	
 private void bySpec(GeneralSpec spec) {
 	
 		  for(Home h:store.getHomeList()) {
 			  if(spec.isMatchingSpec(h)) {selectedHomes.add(h);}}
+		
 	}
 
 	public void searchByAreaBetween(Area areaL,Area areaH ) {
 		GeneralSpec spec=new AreaRangeSpec(areaL,areaH);
-		bySpec(spec);}
+		bySpec(spec);
+	}
 
 	public void searchByBedrooms(Bedrooms bedrooms) {
 		GeneralSpec spec=new BedRoomsSpec(bedrooms);
-		bySpec(spec);}
+		bySpec(spec);
+		}
 
 	public void searchByBathrooms(Bathrooms bathrooms) {
 		GeneralSpec spec=new BathRoomsSpec(bathrooms);
-		bySpec(spec);}
+		bySpec(spec);
+	}
 
 	public void searchByType(HomeType type) {
 		GeneralSpec spec=new TypeSpec(type);
-		bySpec(spec);}
+		bySpec(spec);
+	    webESerivce.sendEmail();
+
+		}
 
 	public void searchByPet(Pet petsObj) {
 		GeneralSpec spec=new PetSpec(petsObj);
@@ -131,7 +158,6 @@ private void bySpec(GeneralSpec spec) {
 	            selectedHomes.clear();
 	          for(Home b:selectedHomes13 ) {
 			  selectedHomes.add(b);}
-	          
 	}
 
 	public void printHomesByMatchingSpec(String string) {
@@ -140,6 +166,7 @@ private void bySpec(GeneralSpec spec) {
 			}
 
 		assertEquals(this.checkOutput.toString(),string);
+		
 		
 		this.selectedHomes. clear();
 		  
@@ -153,24 +180,18 @@ private void bySpec(GeneralSpec spec) {
 	public void setSelectedHomes(List<Home> selectedHomes) {
 		this.selectedHomes = selectedHomes;}
 
-	public List<Home> getSelectedHomes13() {
-		return selectedHomes13;}
-
+	
 	public void setSelectedHomes13(List<Home> selectedHomes13) {
 		this.selectedHomes13 = selectedHomes13;
 	}
 
-	public HomeStore getStore() {
-		return store;
-	}
+	
 
 	public void setStore(HomeStore store) {
 		this.store = store;
 	}
 
-	public String getS1() {
-		return s1;
-	}
+	
 
 	public void setS1(String s1) {
 		this.s1 = s1;
@@ -180,16 +201,19 @@ private void bySpec(GeneralSpec spec) {
 		return checkOutput;
 	}
 
-	public void setCheckoutput(StringBuilder checkoutput) {
-		this.checkOutput = checkoutput;
-	}
+	
 
-	public String getS2() {
-		return s2;
-	}
 
 	public void setS2(String s2) {
 		this.s2 = s2;
+	}
+
+	
+
+
+	
+	public static void setWebESerivce(WebEmailService webESerivce) {
+		SearchHome.webESerivce = webESerivce;
 	}
 	
 	
